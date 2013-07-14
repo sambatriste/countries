@@ -1,11 +1,14 @@
 
-(function() {
-  var q;
-  function createQuestion(data) {
-    return new Question(data.options, data.correctAnswer);
-  }
 
-  function setUpOptions() {
+$(function() {
+  var question;
+
+  $.getJSON("test.js", function(data) {
+    question = new Question(data.options, data.correctAnswer);
+    setUp(question);
+  });
+  
+  function setUp(q) {
     $.each(q.getOptions(), function(i, e) {
       $('#options').append(
         $('<label class="radio">').append(
@@ -13,41 +16,25 @@
             .attr('name', 'option')
             .attr('value', i))
           .append(e)
-          .click(function(event) {
-            onCheck(event);
-          })
+          .click(onCheck)
       );
     });
+    $('#frm').submit(onSubmit);
   }
   
   function onSubmit(event) {
-    console.log("hoge");
-    var msg = q.isCorrect() ? "正解" : "間違い";
+    var msg = question.isCorrect() ? "正解" : "間違い";
     alert(msg);
     return false;
   }
 
   function onCheck(event) {
     var selected = $(event.currentTarget).find('input[type="radio"]').val();
-    q.setSelected(selected);
+    question.setSelected(selected);
   }
+});
 
-  $(function() {
-    $('#frm').submit(function(event) {
-      onSubmit(event);
-      return false;
-    });
 
-    
-//    var q;// = new Question(["ドイツ", "フランス"], 0);
-    $.getJSON("test.js", function(json) {
-      q = createQuestion(json);
-      setUpOptions(q);
-    });
-
-  });
-
-}());
 
 
 
