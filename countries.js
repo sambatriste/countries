@@ -1,25 +1,32 @@
 
-
 $(function() {
   var question;
 
   $.getJSON("test.js", function(data) {
     question = new Question(data.options, data.correctAnswer);
-    setUp(question);
+    setUp(question, data.imageUrl);
   });
   
-  function setUp(q) {
+  function setUp(q, url) {
+    $('#map').append(
+      $('<img id="mapImg" class="img-polaroid" />')
+        .attr('src', url)
+    );
+    
     $.each(q.getOptions(), function(i, e) {
-      $('#options').append(
-        $('<label class="radio">').append(
-          $('<input type="radio"/>')
-            .attr('name', 'option')
-            .attr('value', i))
-          .append(e)
-          .click(onCheck)
-      );
+      var optId = 'opt' + i,
+          $input = $('<input type="radio" name="option"/>')
+                     .attr('id', optId)
+                     .attr('value', i),
+          $label = $('<label>')
+                     .attr('for', optId)
+                     .text(e);
+      $('#options').append($input).append($label);
     });
-    $('#frm').submit(onSubmit);
+    $("input[type='radio']").checkboxradio().checkboxradio('refresh');
+
+    $('#send').click(onSubmit);
+    
   }
   
   function onSubmit(event) {
