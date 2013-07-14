@@ -18,20 +18,22 @@
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
             <h2>地図</h2>
-            <div id="map"></div>
+            <img id="mapImg" alt="map"/>
             <h2>選択肢</h2>
-            <div id="options"></div>
-            <p>
-              <a id="send" href="#" data-role="button">回答</a>
-            </p>
+            <div id="options" data-role="controlgroup">
+              <ul data-role="listview" data-inset="true" id="list">
+              <li><a href="#" id="opt0" data-role="button"></a></li>
+              <li><a href="#" id="opt1" data-role="button"></a></li>
+              <li><a href="#" id="opt2" data-role="button"></a></li>
+            </div>
           </fieldset>
         </div>
       </div>
       <div data-role="footer">
         <div data-role="navbar">
           <ul>
-            <li><a id="home" href="#" class="ui-btn-active">ホーム</a></li>
-            <li><a id="quit" href="#" class="ui-btn-active">終了</a></li>
+            <li><a id="home" href="#" class="ui-btn-active">About</a></li>
+            <li><a id="quit" href="#" class="ui-btn-active">Quit</a></li>
           </ul>
         </div>
       </div> 
