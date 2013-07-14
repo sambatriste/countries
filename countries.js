@@ -16,7 +16,6 @@ $(function() {
         return onSubmit(i);
       });
     });
-    $('#list').listview('refresh');
   }
   
   function onSubmit(selected) {
