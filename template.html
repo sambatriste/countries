@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=divice-width, minimum-scale=1">
+    <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.3.1.css" type="text/css" />
+    <title>jQuery Mobile</title>
+    <script type="text/javascript" src="jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="jquery.tmpl.js"></script>
+    <script type="text/javascript" src="jquery-mobile/jquery.mobile-1.3.1.js"></script>
+  </head>
+  <body>
+    <!-- ページのテンプレート -->
+    <script id="tmpl-page" type="text/x-jquery-tmpl">
+      <section id="${page}" data-role="page">
+        <header data-role="header">
+          <h2>ヘッダー</h2>
+        </header>
+        <article id="content" data-role="content">
+          {{tmpl(options) '#tmpl-options'}}
+        </article>
+        <input id="${btn}" type="button" value="次へ">
+        <footer data-role="footer">
+          <h2>フッター</h2>
+        </footer>
+      </section>
+    </script>
+    <!-- 選択肢のテンプレート -->
+    <script id="tmpl-options" type="text/x-jquery-tmpl">
+      <input id="${optId}" type="button" value="${option}" />
+    </script>
+    <script type="text/javascript" src="template.js">
+    </script>
+  </body>
+
+</html>
