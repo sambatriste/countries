@@ -31,7 +31,7 @@ var getNextData = (function() {
         { optId: "2", option:"ルーマニア" },
         { optId: "3", option:"ブルガリア" }
       ],
-      correctAnswer: "2"
+      correctAnswer: "1"
     }
   ];
   return function() {
