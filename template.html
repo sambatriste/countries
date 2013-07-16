@@ -17,17 +17,21 @@
           <h2>ヘッダー</h2>
         </header>
         <article id="content" data-role="content">
+          <img src="${imageUrl}" class="" alt="map" />
+          
           {{tmpl(options) '#tmpl-options'}}
+          
         </article>
-        <input id="${btn}" type="button" value="次へ">
+        <!-- <input opt="${btn}" type="button" value="次へ"> -->
         <footer data-role="footer">
           <h2>フッター</h2>
         </footer>
       </section>
     </script>
+
     <!-- 選択肢のテンプレート -->
     <script id="tmpl-options" type="text/x-jquery-tmpl">
-      <input id="${optId}" type="button" value="${option}" />
+      <input type="button" value="${option}" onclick="verify('${optId}');" />
     </script>
     <script type="text/javascript" src="template.js">
     </script>

@@ -22,9 +22,5 @@ function Question(data) { //options, correctAnswer) {
     return data.imageUrl;
   };
 
-  this.getStatement() = function() {
-    return (data.statement) ? data.statement : "";
-  };
-  
   this.checkOption(data.correctAnswer);
 }
