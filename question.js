@@ -1,26 +1,30 @@
-function Question(options, correctAnswer) {
-
+function Question(data) { //options, correctAnswer) {
+  
   this.checkOption = function(option) {
-    if (option < 0 || options.length < option) {
+    if (option < 0 || data.options.length < option) {
       throw Error(
-        "illgal argument. [" + options + "] , " + option);
+        "illgal argument. [" + data.options + "] , " + option);
     }
   };
 
-  this.isSelected = function() {
-    return selected !== undefined;
-  };
-  
   /** 正解の判定をする。*/
   this.isCorrect = function(selected) {
-    console.log("selected=[" + selected + "]. correct=[" + correctAnswer +"]" );
-    return selected == correctAnswer;
+//    console.log("selected=[" + selected + "]. correct=[" + correctAnswer +"]" );
+    return selected == data.correctAnswer;
   };
   
   /** 選択肢を取得する。 */
   this.getOptions = function() {
-    return options;
+    return data.options;
+  };
+
+  this.getImageUrl() = function() {
+    return data.imageUrl;
+  };
+
+  this.getStatement() = function() {
+    return (data.statement) ? data.statement : "";
   };
   
-  this.checkOption(correctAnswer);
+  this.checkOption(data.correctAnswer);
 }

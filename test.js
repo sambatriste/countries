@@ -1,6 +1,7 @@
 {
   "imageUrl" : "http://www.mofa.go.jp/mofaj/area/germany/image/map.gif",
-  "options" : ["ドイツ", "フランス", "オランダ"],
-  "correctAnswer" : "0"
+  "statement":"この国の名前は？",
+  "options" : ["ドイツ", "フランス", "オランダ"]
+
 }
 

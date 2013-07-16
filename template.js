@@ -1,15 +1,13 @@
 
 (function() {
+  
+  /** 次のページの情報を取得する。*/
   var getNext = (function() {
     var i = 0;
     return function() {
       var data = {
-        page: function() {
-          return "page" + i;
-        },
-        btn: function() {
-          return "btn" + i; 
-        },
+        page: 'page' + i, 
+        btn: 'btn' + i,
         options: [
           { optId: "1", option:"ドイツ" + i  },
           { optId: "2", option:"フランス" },
@@ -20,24 +18,23 @@
       return data;
     };
   })();
+
+  /** 次のページへ遷移する。*/
   var goNext = function() {
     var data = getNext(),
-        btn = '#' + data.btn(),
-        nextPage = '#' + data.page();
+        btnId = '#' + data.btn,
+        nextPageId =  '#' + data.page;
+    // bodyに新しいページを追加する。
     $('#tmpl-page').tmpl(data).appendTo('body');
-
-    $(btn).click(function(event) {
+    // ボタンにイベントを追加する。
+    $(btnId).click(function(event) {
       goNext();
     });
-
-    $.mobile.changePage(nextPage, {transition: 'flow'});      
-
+    // ページ遷移を行う。
+    $.mobile.changePage(nextPageId, {transition: 'flow'});      
 
   };
-
 
   goNext();
   
 }());
-
-
