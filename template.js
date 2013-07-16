@@ -3,11 +3,11 @@ var current;
 
 /** 次のページの情報を取得する。*/
 var getNextData = (function() {
-  var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/";
+  
   var i = 0;
   var data = [
     { // 0
-      imageUrl: URL_PREFIX + "germany/image/map.gif",
+      name: "germany",
       options: [
         { optId: "1", option:"ドイツ" },
         { optId: "2", option:"フランス" },
@@ -16,7 +16,7 @@ var getNextData = (function() {
       correctAnswer: "1"
     },
     { // 1
-      imageUrl: URL_PREFIX + "uk/image/map.gif",
+      name: "uk",
       options: [
         { optId: "1", option:"ノルウェー" },
         { optId: "2", option:"イギリス" },
@@ -25,7 +25,7 @@ var getNextData = (function() {
       correctAnswer: "2"
     },
     { // 2
-      imageUrl: URL_PREFIX + "azerbaijan/image/map.gif",
+      name: "azerbaijan",
       options: [
         { optId: "1", option:"アゼルバイジャン" },
         { optId: "2", option:"ルーマニア" },
@@ -35,12 +35,15 @@ var getNextData = (function() {
     }
   ];
   return function() {
-    var ret = data[i];
-    // ページIDとボタンIDを付与
+    var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
+        URL_SUFFIX = "/image/map.gif",
+        ret = data[i];
+    
+    // 必要なプロパティを付与
     if (ret !== undefined ) {
       ret.page = 'page' + i;
       ret.btn = 'btn' + i;
-      ret.qId = 'q' + i;
+      ret.imageUrl = URL_PREFIX + ret.name + URL_SUFFIX;
       i += 1;
     }
     return ret;
