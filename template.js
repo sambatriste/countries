@@ -65,18 +65,16 @@ var goNext = function() {
   });
 
   $.mobile.changePage('#' + current.page, {transition: 'flow'});
-  
 
 };
 
 function verify(selected) {
+  if (!current) { return false; }
   var msg = current.correctAnswer == selected ? '正解' : '不正解';
   alert(msg);
   goNext();
+  return false;
 }
 
 
 goNext();
-
-
-
