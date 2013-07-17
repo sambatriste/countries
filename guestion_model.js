@@ -1,34 +1,5 @@
-function Questions() {
-  var data = [
-    { // 0
-      name: "germany",
-      options: [
-        { optId: "1", option:"ドイツ" },
-        { optId: "2", option:"フランス" },
-        { optId: "3", option:"オランダ" }
-      ],
-      correctAnswer: "1"
-    },
-    { // 1
-      name: "uk",
-      options: [
-        { optId: "1", option:"ノルウェー" },
-        { optId: "2", option:"イギリス" },
-        { optId: "3", option:"グリーンランド" }
-      ],
-      correctAnswer: "2"
-    },
-    { // 2
-      name: "azerbaijan",
-      options: [
-        { optId: "1", option:"アゼルバイジャン" },
-        { optId: "2", option:"ルーマニア" },
-        { optId: "3", option:"ブルガリア" }
-      ],
-      correctAnswer: "1"
-    }
-  ],
-      idx = 0,
+function Questions(data) {
+  var idx = 0,
       correctCnt = 0,
       currentQuestion;
   
