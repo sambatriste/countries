@@ -6,6 +6,9 @@ function goNext() {
   var current = questions.nextQuestion();
   if (current == undefined) {
     alert('おしまい');
+    $('#tmpl-finish').tmpl().appendTo('body');
+    $('#result').text(questions.getPercentage().toFixed());
+    $.mobile.changePage('#finish', {transition: 'flow'});
     return;
   }
   
@@ -24,7 +27,7 @@ function verify(selected) {
     msg = '不正解';
   }
   
-  alert(msg + ' : ' + questions.getCorrectCnt() + '/' + questions.getTotalCnt());
+  alert(msg + ' : ' + questions.getResult());
   goNext();
   return false;
 }

@@ -50,6 +50,13 @@ function Questions() {
     return idx;
   };
 
+  this.getResult = function() {
+    return this.getCorrectCnt() + '/' + this.getTotalCnt();
+  };
+
+  this.getPercentage = function() {
+    return this.getCorrectCnt() / this.getTotalCnt() * 100;
+  };
   this.isCorrect = function(selected) {
     var correct = currentQuestion.isCorrect(selected);
     if (correct) {

@@ -23,16 +23,30 @@
           {{tmpl(options) '#tmpl-options'}}
           
         </article>
-        <!-- <input opt="${btn}" type="button" value="次へ"> -->
         <footer data-role="footer">
           <h2>フッター</h2>
         </footer>
       </section>
     </script>
-
     <!-- 選択肢のテンプレート -->
     <script id="tmpl-options" type="text/x-jquery-tmpl">
       <input type="button" value="${option}" onclick="verify('${optId}');" />
+    </script>
+
+    <!-- 終わり -->
+    <script id="tmpl-finish" type="text/x-jquery-tmpl">
+      <section id="finish" data-role="page">
+        <header data-role="header">
+          <h2>ヘッダー</h2>
+        </header>
+        <article id="content" data-role="content">
+          お疲れ様でした。<br/>
+          正答率は<span id="result"></span>%でした。
+        </article>
+        <footer data-role="footer">
+          <h2>フッター</h2>
+        </footer>
+      </section>
     </script>
     <script type="text/javascript" src="guestion_model.js"></script>
     <script type="text/javascript" src="question_ctrl.js"></script>
