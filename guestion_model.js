@@ -1,66 +1,69 @@
-function Questions(data) {
-  var idx = 0,
-      correctCnt = 0,
-      currentQuestion;
-  
-  this.nextQuestion = function() {
-    var nextData = data[idx];
-    if (nextData == undefined) {
+var Questions = (function() {
+  return function(data) {
+    this.data = data;
+    this.idx = 0,
+    this.correctCnt = 0,
+    this.currentQuestion = null;
+  };
+}());
+
+(function() {
+
+  Questions.prototype.nextQuestion = function() {
+    var data = this.data[this.idx];
+    if (data === undefined) {
       return undefined;
     }
-    currentQuestion = new Question(nextData, idx);
-    idx++;
-    return currentQuestion;
+    this.currentQuestion = new Question(data, this.idx);
+    this.idx++;
+    return this.currentQuestion;
   };
+
   
-  this.getCorrectCnt = function() {
-    return correctCnt;
+  Questions.prototype.getResult = function() {
+    return this.correctCnt + '/' + this.idx;
   };
 
-  this.getTotalCnt = function() {
-    return idx;
+  Questions.prototype.getPercentage = function() {
+    return this.correctCnt / this.idx * 100;
   };
 
-  this.getResult = function() {
-    return this.getCorrectCnt() + '/' + this.getTotalCnt();
-  };
-
-  this.getPercentage = function() {
-    return this.getCorrectCnt() / this.getTotalCnt() * 100;
-  };
-  this.isCorrect = function(selected) {
-    var correct = currentQuestion.isCorrect(selected);
+  Questions.prototype.isCorrect = function(selected) {
+    var correct = this.currentQuestion.isCorrect(selected);
     if (correct) {
-      correctCnt++;      
+      this.correctCnt++;
     }
     return correct;
   };
 
   function Question(data, idx) {
-    this.getRawData = function() {
-      var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
-          URL_SUFFIX = "/image/map.gif";
-      return {
-        no : idx + 1,
-        idx : idx,
-        page : 'page' + idx,
-        btn : 'btn' + idx,
-        imageUrl : URL_PREFIX + data.name + URL_SUFFIX,
-        options : data.options
-      };
-    };
-
-    this.checkOption = function(option) {
-      if (option < 0 || data.options.length < option) {
-        throw Error("illgal argument. [" + data.options + "] , " + option);
-      }
-    };
-
-    /** 正解の判定をする。*/
-    this.isCorrect = function(selected) {
-      return (selected == data.correctAnswer);
-    };
-
-    this.checkOption(data.correctAnswer);
+    this.data = data;
+    this.idx = idx;
+    
+    if (data.correctAnswer < 0 ||
+        data.options.length < data.correctAnswer) {
+      throw Error("illgal argument. [" + data.options + "] , "
+                  + data.correctAnswer);
+    }
   }
-}
+
+  Question.prototype.getRawData = function() {
+    var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
+    URL_SUFFIX = "/image/map.gif";
+    return {
+      no : this.idx + 1,
+      idx : this.idx,
+      page : 'page' + this.idx,
+      btn : 'btn' + this.idx,
+      imageUrl : URL_PREFIX + this.data.name + URL_SUFFIX,
+      options : this.data.options
+    };
+  };
+
+  /** 正解の判定をする。*/
+  Question.prototype.isCorrect = function(selected) {
+    return (selected == this.data.correctAnswer);
+  };
+
+}());
+
