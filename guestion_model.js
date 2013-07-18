@@ -38,7 +38,8 @@ function Questions(data) {
 
   function Question(data, idx) {
     var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
-        URL_SUFFIX = "/image/map.gif";
+        URL_SUFFIX = "/image/map.gif",
+        i, option;
     
     this.idx = idx;
     this.page = 'page' + idx;
