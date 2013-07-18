@@ -35,38 +35,42 @@ function goNext() {
   var current = questions.nextQuestion(),
       $buttons;
   if (current == undefined) {
-    $('#tmpl-finish').tmpl().appendTo('body');
-    $('#result').text(questions.getPercentage().toFixed());
-    $.mobile.changePage('#finish', {transition: 'flow'});
+    finish();
     return;
   }
   
   // bodyに新しいページを追加する。
   $('#tmpl-page').tmpl(current).appendTo('body');
-  
+  // ボタンを生成
   $buttons = $('#' + current.page + ' input');
   $buttons.click(function(event) {
-    var $touched = $(event.target);
-    $touched.button({theme: 'e'});
-    // ボタンを非活性にする
-    $buttons.button('disable');
-    var selected = $touched.attr('no');
-    verify(selected);
+    var $touched = $(event.target),
+        selected = $touched.attr('no');
+    $touched.button({theme: 'e'}); // タッチしたボタンの色を変える
+    $buttons.button('disable');    // ボタンを非活性にする
+    verify(selected); // 答え合わせ
   });
+
+  // ページ遷移
   $.mobile.changePage('#' + current.page, {transition: 'flow'});
+
+  function finish() {
+    var result = questions.getPercentage().toFixed();
+    $('#tmpl-finish').tmpl().appendTo('body');
+    $('#result').text(result);
+    $.mobile.changePage('#finish', {transition: 'flow'});
+  }
+  
+  function verify(selected) {
+    var msg = (questions.isCorrect(selected)) ?
+      '正解' :
+      '不正解';
+    
+    alert(msg + ' : ' + questions.getResult());
+    goNext();
+    return false;
+  }
 
 };
 
-function verify(selected) {
-  var msg;
-  if (questions.isCorrect(selected)) {
-    msg = '正解';
-  } else {
-    msg = '不正解';
-  }
-  
-  alert(msg + ' : ' + questions.getResult());
-  goNext();
-  return false;
-}
 goNext();
