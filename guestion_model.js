@@ -37,15 +37,18 @@ function Questions(data) {
   };
 
   function Question(data, idx) {
-    var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
-        URL_SUFFIX = "/image/map.gif",
-        i, option;
-    
-    this.idx = idx;
-    this.page = 'page' + idx;
-    this.btn = 'btn' + idx;
-    this.imageUrl = URL_PREFIX + data.name + URL_SUFFIX;
-    this.options = data.options;
+    this.getRawData = function() {
+      var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
+          URL_SUFFIX = "/image/map.gif";
+      return {
+        no : idx + 1,
+        idx : idx,
+        page : 'page' + idx,
+        btn : 'btn' + idx,
+        imageUrl : URL_PREFIX + data.name + URL_SUFFIX,
+        options : data.options
+      };
+    };
 
     this.checkOption = function(option) {
       if (option < 0 || data.options.length < option) {

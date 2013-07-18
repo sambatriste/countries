@@ -15,7 +15,7 @@
     <script id="tmpl-page" type="text/x-jquery-tmpl">
       <section id="${page}" data-role="page">
         <header data-role="header">
-          <h2>ヘッダー</h2>
+          <h2>第${no}問</h2>
         </header>
         <article id="content" data-role="content">
           <img src="${imageUrl}" class="" alt="map" />
@@ -23,9 +23,11 @@
           {{tmpl(options) '#tmpl-options'}}
           
         </article>
+<!--
         <footer data-role="footer">
           <h2>フッター</h2>
         </footer>
+-->
       </section>
     </script>
     <!-- 選択肢のテンプレート -->
