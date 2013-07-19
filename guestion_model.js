@@ -1,13 +1,13 @@
-var Questions = (function() {
-  return function(data) {
+var Questions;
+
+(function() {
+
+  Questions = function(data) {
     this.data = data;
     this.idx = 0,
     this.correctCnt = 0,
     this.currentQuestion = null;
   };
-}());
-
-(function() {
 
   Questions.prototype.nextQuestion = function() {
     var data = this.data[this.idx];
@@ -36,7 +36,7 @@ var Questions = (function() {
     return correct;
   };
 
-  function Question(data, idx) {
+  var Question = function(data, idx) {
     this.data = data;
     this.idx = idx;
     
@@ -45,7 +45,7 @@ var Questions = (function() {
       throw Error("illgal argument. [" + data.options + "] , "
                   + data.correctAnswer);
     }
-  }
+  };
 
   Question.prototype.getRawData = function() {
     var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
