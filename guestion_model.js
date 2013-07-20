@@ -1,4 +1,4 @@
-var COUNTRIES = {};
+var COUNTRIES = COUNTRIES || {};
 
 (function() {
   var Questions = function(data) {
@@ -82,28 +82,6 @@ var COUNTRIES = {};
     return (selected == this.data.answer);
   };
 
-
-  Question.prototype.getRawData = function() {
-    var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
-        URL_SUFFIX = "/image/map.gif",
-        that = this;
-    return {
-      no : this.idx + 1,
-      idx : this.idx,
-      page : 'page' + this.idx,
-      btn : 'btn' + this.idx,
-      imageUrl : URL_PREFIX + this.data.name + URL_SUFFIX,
-      options : (function() {
-        var orig = that.generateOptions(),
-            options = [],
-            i = 0;
-        for (; i < orig.length; i++) {
-          options.push({ option:orig[i] });
-        }
-        return options;
-      }())
-    };
-  };
   COUNTRIES.Question = Question;
   
   var SimpleSet = function() {

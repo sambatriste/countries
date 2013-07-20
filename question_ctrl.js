@@ -31,7 +31,7 @@
   /** 次のページへ遷移する。*/
   function goNext() {
     var current = questions.nextQuestion(),
-        rawData,
+        view,
         $buttons;
     
     if (current === undefined) {
@@ -39,11 +39,11 @@
       return;
     }
     
-    rawData = current.getRawData();
+    view = new COUNTRIES.QuestionView(current);
     // bodyに新しいページを追加する。
-    $('#tmpl-page').tmpl(rawData).appendTo('body');
+    $('#tmpl-page').tmpl(view).appendTo('body');
     // ボタンを生成
-    $buttons = $('#' + rawData.page + ' input');
+    $buttons = $('#' + view.page + ' input');
     $buttons.click(function(event) {
       var $touched = $(event.target),
       selected = $touched.attr('value');
@@ -53,7 +53,7 @@
     });
 
     // ページ遷移
-    $.mobile.changePage('#' + rawData.page, {transition: 'flow'});
+    $.mobile.changePage('#' + view.page, {transition: 'flow'});
 
   }
   
@@ -78,4 +78,5 @@
   goNext();
   
 }());
+
 
