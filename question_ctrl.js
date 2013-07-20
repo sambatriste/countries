@@ -1,35 +1,32 @@
 
 (function() {
   var data = [
-    { // 0
+    { 
       name: "germany",
+      answer: "ドイツ",
       options: [
-        { no: "1", option:"ドイツ" },
-        { no: "2", option:"フランス" },
-        { no: "3", option:"オランダ" }
-      ],
-      correctAnswer: "1"
+        { option:"フランス" },
+        { option:"オランダ" }
+      ]
     },
     { // 1
       name: "uk",
+      answer:"イギリス",
       options: [
-        { no: "1", option:"ノルウェー" },
-        { no: "2", option:"イギリス" },
-        { no: "3", option:"グリーンランド" }
-      ],
-      correctAnswer: "2"
+        { option:"ノルウェー" },
+        { option:"グリーンランド" }
+      ]
     },
     { // 2
       name: "azerbaijan",
+      answer: "アゼルバイジャン",
       options: [
-        { no: "1", option:"アゼルバイジャン" },
-        { no: "2", option:"ルーマニア" },
-        { no: "3", option:"ブルガリア" }
-      ],
-      correctAnswer: "1"
+        { option:"ルーマニア" },
+        { option:"ブルガリア" }
+      ]
     }
   ];
-  var questions = new Questions(data);
+  var questions = new COUNTRIES.Questions(data);
 
   /** 次のページへ遷移する。*/
   function goNext() {
@@ -37,7 +34,7 @@
         rawData,
         $buttons;
     
-    if (current == undefined) {
+    if (current === undefined) {
       finish();
       return;
     }
@@ -49,7 +46,7 @@
     $buttons = $('#' + rawData.page + ' input');
     $buttons.click(function(event) {
       var $touched = $(event.target),
-      selected = $touched.attr('no');
+      selected = $touched.attr('value');
       $touched.button({theme: 'e'}); // タッチしたボタンの色を変える
       $buttons.button('disable');    // ボタンを非活性にする
       verify(selected); // 答え合わせ

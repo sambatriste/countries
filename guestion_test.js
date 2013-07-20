@@ -1,43 +1,31 @@
 var data = [
-  { // 0
+  { 
     name: "germany",
+    answer: "ドイツ",
     options: [
-      { no: "1", option:"ドイツ" },
-      { no: "2", option:"フランス" },
-      { no: "3", option:"オランダ" }
-    ],
-    correctAnswer: "1"
-  },
-  { // 1
-    name: "uk",
-    options: [
-      { no: "1", option:"ノルウェー" },
-      { no: "2", option:"イギリス" },
-      { no: "3", option:"グリーンランド" }
-    ],
-    correctAnswer: "2"
-  },
-  { // 2
-    name: "azerbaijan",
-    options: [
-      { no: "1", option:"アゼルバイジャン" },
-      { no: "2", option:"ルーマニア" },
-      { no: "3", option:"ブルガリア" }
-    ],
-    correctAnswer: "1"
+      { option:"フランス" },
+      { option:"オランダ" }
+    ]
   }
 ];
+test("選択肢", function() {
+  var target = new COUNTRIES.Question(data[0], 0),
+  actual = target.generateOptions(),
+  sorted = actual.sort();
+  equal(actual.length, 3, "要素数は３");
+  deepEqual(sorted, ["ドイツ", "フランス", "オランダ"].sort(),
+            "元の選択肢の要素がすべて含まれていること");
+});
+test("答えの判定ができること", function() {
 
-test("答えの判定ができること", function() {
-
-  var target = new Questions(data);
+  var target = new COUNTRIES.Questions(data);
   var q = target.nextQuestion();
   
-  ok(target.isCorrect("1"));
-  ok(!target.isCorrect("2"));
+  ok(target.isCorrect("ドイツ"));
+  ok(!target.isCorrect("フランス"));
 
-  ok(q.isCorrect("1"));
-  ok(!q.isCorrect("2"));
+  ok(q.isCorrect("ドイツ"));
+  ok(!q.isCorrect("フランス"));
   
 
 });
