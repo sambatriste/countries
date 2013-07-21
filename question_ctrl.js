@@ -54,7 +54,8 @@
     type: "GET",
     dataType: "json",
     success: function(data, status, xhr) {
-      questions = new COUNTRIES.Questions(data);
+      var shuffled = COUNTRIES.utils.shuffle(data);
+      questions = new COUNTRIES.Questions(shuffled);
       goNext();
     },
     error: function(data, status, xhr) {
