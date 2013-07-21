@@ -3,18 +3,18 @@ var COUNTRIES = COUNTRIES || {};
 (function() {
   var Questions = function(data) {
     this.data = data;
-    this.idx = 0,
+    this.idx = -1,
     this.correctCnt = 0,
     this.currentQuestion = null;
   };
 
   Questions.prototype.nextQuestion = function() {
+    this.idx++;
     var data = this.data[this.idx];
     if (data === undefined) {
       return undefined;
     }
     this.currentQuestion = new COUNTRIES.Question(data, this.idx);
-    this.idx++;
     return this.currentQuestion;
   };
 
@@ -52,8 +52,7 @@ var COUNTRIES = COUNTRIES || {};
 
       all.push(that.data.answer);
       for (; i < opts.length; i++) {
-        var e = opts[i];
-        all.push(e.option);
+        all.push(opts[i]);
       }
       return all;
     }());

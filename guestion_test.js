@@ -2,10 +2,7 @@ var data = [
   { 
     name: "germany",
     answer: "ドイツ",
-    options: [
-      { option:"フランス" },
-      { option:"オランダ" }
-    ]
+    options: ["フランス","オランダ"]
   }
 ];
 

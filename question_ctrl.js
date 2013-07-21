@@ -1,32 +1,8 @@
 
 (function() {
-  var data = [
-    { 
-      name: "germany",
-      answer: "ドイツ",
-      options: [
-        { option:"フランス" },
-        { option:"オランダ" }
-      ]
-    },
-    { // 1
-      name: "uk",
-      answer:"イギリス",
-      options: [
-        { option:"ノルウェー" },
-        { option:"グリーンランド" }
-      ]
-    },
-    { // 2
-      name: "azerbaijan",
-      answer: "アゼルバイジャン",
-      options: [
-        { option:"ルーマニア" },
-        { option:"ブルガリア" }
-      ]
-    }
-  ];
-  var questions = new COUNTRIES.Questions(data);
+
+  var questions;
+
 
   /** 次のページへ遷移する。*/
   function goNext() {
@@ -74,8 +50,17 @@
     return false;
   }
 
-
-  goNext();
+  $.ajax("question_data.js", {
+    type: "GET",
+    dataType: "json",
+    success: function(data, status, xhr) {
+      questions = new COUNTRIES.Questions(data);
+      goNext();
+    },
+    error: function(data, status, xhr) {
+      alert(status);
+    }
+  });
   
 }());
 
