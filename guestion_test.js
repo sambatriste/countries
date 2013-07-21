@@ -6,6 +6,27 @@ var data = [
   }
 ];
 
+test("random", function() {
+  var actual,
+      i;
+  for (i = 0; i < 10; i++) {
+    actual = COUNTRIES.utils.random(3);
+    ok(0 <=actual);
+    ok(actual < 3);
+  }
+});
+
+test("sequence", function() {
+  var actual = COUNTRIES.utils.generateSequence(10);
+  equal(actual.length, 10);
+  deepEqual(actual,  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+});
+
+test("randomNumbers", function() {
+  var actual = COUNTRIES.utils.randomNumbers(10);
+  deepEqual(actual.sort(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].sort());
+});
+
 test("View", function() {
   var question = new COUNTRIES.Question(data[0], 0);
   var target = new COUNTRIES.QuestionView(question);
