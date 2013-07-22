@@ -2,7 +2,7 @@ var COUNTRIES = COUNTRIES || {};
 
 (function() {
 
-  var QuestionView = function(question) {
+  COUNTRIES.QuestionView = function(question) {
     var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
         URL_SUFFIX = "/image/map.gif";
     this.no = question.idx + 1;
@@ -20,7 +20,6 @@ var COUNTRIES = COUNTRIES || {};
       return options;
     }());
   };
-  COUNTRIES.QuestionView = QuestionView;
 
 
 }());
