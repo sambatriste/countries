@@ -3,8 +3,8 @@ var COUNTRIES = COUNTRIES || {};
 (function() {
   var Questions = function(data) {
     this.data = data;
-    this.idx = 0,
-    this.correctCnt = 0,
+    this.idx = 0;
+    this.correctCnt = 0;
     this.currentQuestion = null;
   };
 
