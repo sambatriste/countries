@@ -11,6 +11,17 @@
 
   </head>
   <body>
+    <!-----ポップアップ表示する内容--------------->
+    <div data-role="dialog" id="answerDialog">
+      <div data-role="header">
+        <h1><span id="answerDisp">正解</span></h1>
+      </div>
+      <div data-role="content">
+        <img src="#" alt="answerMap" />
+        <a href="#" id="answerOk" data-role="button">OK</a>
+      </div>
+    </div>
+    
     <!-- ページのテンプレート -->
     <script id="tmpl-page" type="text/x-jquery-tmpl">
       <section id="${page}" data-role="page">
@@ -23,11 +34,11 @@
           {{tmpl(options) '#tmpl-options'}}
           
         </article>
-<!--
-        <footer data-role="footer">
-          <h2>フッター</h2>
-        </footer>
--->
+        <!--
+            <footer data-role="footer">
+              <h2>フッター</h2>
+            </footer>
+            -->
       </section>
     </script>
     <!-- 選択肢のテンプレート -->

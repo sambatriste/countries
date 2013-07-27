@@ -44,9 +44,11 @@
     var msg = (questions.isCorrect(selected)) ?
       '正解' :
       '不正解';
-    
-    alert(msg + ' : ' + questions.getResult());
-    goNext();
+    $('#answerDisp').text(msg);
+    $.mobile.changePage('#answerDialog', {transition: 'pop', role: 'dialog'});
+
+//    alert(msg + ' : ' + questions.getResult());
+  //  goNext();
     return false;
   }
 
@@ -61,6 +63,10 @@
     error: function(data, status, xhr) {
       alert(status);
     }
+  });
+
+  $('#answerOk').click(function(event) {
+    goNext();
   });
   
 }());
