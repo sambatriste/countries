@@ -3,9 +3,9 @@
 
   var questions;
 
-
   /** 次のページへ遷移する。*/
   function goNext() {
+
     var current = questions.nextQuestion(),
         view,
         $buttons;
@@ -27,10 +27,8 @@
       $buttons.button('disable');    // ボタンを非活性にする
       verify(selected); // 答え合わせ
     });
-
     // ページ遷移
     $.mobile.changePage('#' + view.page, {transition: 'flow'});
-
   }
   
   function finish() {
@@ -46,27 +44,27 @@
       '不正解';
     $('#answerDisp').text(msg);
     $.mobile.changePage('#answerDialog', {transition: 'pop', role: 'dialog'});
-
-//    alert(msg + ' : ' + questions.getResult());
-  //  goNext();
-    return false;
   }
 
-  $.ajax("question_data.js", {
-    type: "GET",
-    dataType: "json",
-    success: function(data, status, xhr) {
-      var shuffled = COUNTRIES.utils.shuffle(data);
-      questions = new COUNTRIES.Questions(shuffled);
-      goNext();
-    },
-    error: function(data, status, xhr) {
-      alert(status);
-    }
-  });
+  $(document).delegate("#start", "pageinit", function() {
+    $.ajax("question_data.js", {
+      type: "GET",
+      dataType: "json",
+      success: function(data, status, xhr) {
+        var shuffled = COUNTRIES.utils.shuffle(data);
+        questions = new COUNTRIES.Questions(shuffled);
+      },
+      error: function(data, status, xhr) {
+        alert(status);
+      }
+    });
 
-  $('#answerOk').click(function(event) {
-    goNext();
+    $('#answerOk').click(function(event) {
+      goNext();
+    });
+    $('#start').click(function(event) {
+      goNext();
+    });
   });
   
 }());

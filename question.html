@@ -11,17 +11,17 @@
 
   </head>
   <body>
-    <!-----ポップアップ表示する内容--------------->
-    <div data-role="dialog" id="answerDialog">
-      <div data-role="header">
-        <h1><span id="answerDisp">正解</span></h1>
-      </div>
-      <div data-role="content">
-        <img src="#" alt="answerMap" />
-        <a href="#" id="answerOk" data-role="button">OK</a>
-      </div>
-    </div>
-    
+    <section id="start" data-role="page">
+      <header data-role="header">
+        <h2>ようこそ</h2>
+      </header>
+      <article id="startMain" data-role="content">
+        <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/World-map-2004-cia-factbook-large-1.7m-whitespace-removed.jpg/320px-World-map-2004-cia-factbook-large-1.7m-whitespace-removed.jpg" class="" alt="world_map" />
+        ほげ
+        <a href="#" id="startBtn" data-role="button">START!</a>
+      </article>
+    </section>
+
     <!-- ページのテンプレート -->
     <script id="tmpl-page" type="text/x-jquery-tmpl">
       <section id="${page}" data-role="page">
@@ -61,6 +61,18 @@
         </footer>
       </section>
     </script>
+
+    <!-----ポップアップ表示する内容--------------->
+    <div data-role="dialog" id="answerDialog" data-close-btn="none" >
+      <div data-role="header">
+        <h1><span id="answerDisp"></span></h1>
+      </div>
+      <div data-role="content">
+        <img src="#" alt="answerMap" />
+        <a href="#" id="answerOk" data-role="button">OK</a>
+      </div>
+    </div>
+
     <script type="text/javascript" src="question_utils.js"></script>
     <script type="text/javascript" src="question_model.js"></script>
     <script type="text/javascript" src="question_view.js"></script>
