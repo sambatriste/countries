@@ -61,7 +61,9 @@
 
     $('#answerOk').click(function(event) {
       goNext();
-      $('#answerMap').attr('src', view.answerMap);
+      setTimeout(function() {
+        $('#answerMap').attr('src', view.answerMap);
+      }, 500);
     });
     $('#start').click(function(event) {
       goNext();
