@@ -2,12 +2,12 @@
 (function() {
 
   var questions;
-
+  var view;
+  
   /** 次のページへ遷移する。*/
   function goNext() {
 
     var current = questions.nextQuestion(),
-        view,
         $buttons;
     
     if (current === undefined) {
@@ -39,15 +39,15 @@
   }
   
   function verify(selected) {
-    var msg = (questions.isCorrect(selected)) ?
-      '正解' :
-      '不正解';
-    $('#answerDisp').text(msg);
+    $('#answerMap').attr('src', view.answerMap);
+    $('#answerCountry').text(view.answerCountry);
+    $('#answerDisp').text((questions.isCorrect(selected)) ? '正解' : '不正解');
+    // ポップアップダイアログを表示
     $.mobile.changePage('#answerDialog', {transition: 'pop', role: 'dialog'});
   }
 
   $(document).delegate("#start", "pageinit", function() {
-    $.ajax("question_data.js", {
+    $.ajax("data_asia.json", {
       type: "GET",
       dataType: "json",
       success: function(data, status, xhr) {
@@ -55,12 +55,13 @@
         questions = new COUNTRIES.Questions(shuffled);
       },
       error: function(data, status, xhr) {
-        alert(status);
+        alert("Ajax Error! :" + status);
       }
     });
 
     $('#answerOk').click(function(event) {
       goNext();
+      $('#answerMap').attr('src', view.answerMap);
     });
     $('#start').click(function(event) {
       goNext();

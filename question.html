@@ -29,7 +29,7 @@
           <h2>第${no}問</h2>
         </header>
         <article id="content" data-role="content">
-          <img src="${imageUrl}" class="" alt="map" />
+          <img src="${questionMap}" class="" alt="map" />
           
           {{tmpl(options) '#tmpl-options'}}
           
@@ -68,7 +68,8 @@
         <h1><span id="answerDisp"></span></h1>
       </div>
       <div data-role="content">
-        <img src="#" alt="answerMap" />
+        <h4 id="answerCountry"></h4>
+        <img id="answerMap" src="#" alt="answerMap" />
         <a href="#" id="answerOk" data-role="button">OK</a>
       </div>
     </div>

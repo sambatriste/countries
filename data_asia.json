@@ -1,0 +1,23 @@
+[
+  { "area":"asia", "map":"map01.gif", "name":"india",         "answer":"インド"          ,"options":["パキスタン","スリランカ"] }, 
+  { "area":"asia", "map":"map02.gif", "name":"indonesia",     "answer":"インドネシア"    ,"options":["マレーシア","タイ"] }, 
+  { "area":"asia", "map":"map04.gif", "name":"cambodia",      "answer":"カンボジア"      ,"options":["ベトナム","ラオス"] }, 
+  { "area":"asia", "map":"map05.gif", "name":"singapore",     "answer":"シンガポール"    ,"options":["マレーシア","タイ"] }, 
+  { "area":"asia", "map":"map06.gif", "name":"srilanka",      "answer":"スリランカ"      ,"options":["ブータン","バングラデシュ"] }, 
+  { "area":"asia", "map":"map07.gif", "name":"thailand",      "answer":"タイ"            ,"options":["マレーシア","ミャンマー"] }, 
+  { "area":"asia", "map":"map08.gif", "name":"korea",         "answer":"韓国"            ,"options":["モンゴル","東ティモール"] }, 
+  { "area":"asia", "map":"map09.gif", "name":"china",         "answer":"中国"            ,"options":["モンゴル","ロシア"] }, 
+  { "area":"asia", "map":"map10.gif", "name":"nepal",         "answer":"ネパール"        ,"options":["パキスタン","ブータン"] }, 
+  { "area":"asia", "map":"map11.gif", "name":"pakistan",      "answer":"パキスタン"      ,"options":["カザフスタン","アフガニスタン"] }, 
+  { "area":"asia", "map":"map12.gif", "name":"bangladesh",    "answer":"バングラデシュ"  ,"options":["ネパール","ブータン"] }, 
+  { "area":"asia", "map":"map21.gif", "name":"easttimor",     "answer":"東ティモール"    ,"options":["インドネシア","シンガポール"] }, 
+  { "area":"asia", "map":"map14.gif", "name":"philippines",   "answer":"フィリピン"      ,"options":["マレーシア","タイ"] }, 
+  { "area":"asia", "map":"map13.gif", "name":"bhutan",        "answer":"ブータン"        ,"options":["ブルネイ","ネパール"] }, 
+  { "area":"asia", "map":"map15.gif", "name":"brunei",        "answer":"ブルネイ"        ,"options":["シンガポール","モルディブ"] }, 
+  { "area":"asia", "map":"map03.gif", "name":"vietnam",       "answer":"ベトナム"        ,"options":["カンボジア","ラオス"] }, 
+  { "area":"asia", "map":"map16.gif", "name":"malaysia",      "answer":"マレーシア"      ,"options":["タイ","フィリピン"] }, 
+  { "area":"asia", "map":"map17.gif", "name":"myanmar",       "answer":"ミャンマー "     ,"options":["バングラデシュ","タイ"] }, 
+  { "area":"asia", "map":"map18.gif", "name":"maldives",      "answer":"モルディブ"      ,"options":["スリランカ","ブルネイ"] }, 
+  { "area":"asia", "map":"map19.gif", "name":"mongolia",      "answer":"モンゴル "       ,"options":["中国","カザフスタン"] }, 
+  { "area":"asia", "map":"map20.gif", "name":"laos",          "answer":"ラオス"          ,"options":["カンボジア","ミャンマー"] }
+]
