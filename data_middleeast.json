@@ -1,0 +1,19 @@
+
+[
+  { "area":"middleeast" , "map":"map01.gif", "name":"afghanistan", "answer":"アフガニスタン"    , "options":["カザフスタン", "パキスタン"] } 
+  { "area":"middleeast" , "map":"map02.gif", "name":"uae",         "answer":"アラブ首長国連邦"  , "options":["オマーン", "イエメン"] } 
+  { "area":"middleeast" , "map":"map03.gif", "name":"yemen",       "answer":"イエメン"          , "options":["オマーン", "アラブ首長国連邦"] } 
+  { "area":"middleeast" , "map":"map04.gif", "name":"israel",      "answer":"イスラエル"        , "options":["パレスチナ自治政府", "レバノン"] } 
+  { "area":"middleeast" , "map":"map05.gif", "name":"iraq",        "answer":"イラク"            , "options":["イラン", "クウェート"] } 
+  { "area":"middleeast" , "map":"map06.gif", "name":"iran",        "answer":"イラン"            , "options":["イラク", "クウェート"] } 
+  { "area":"middleeast" , "map":"map07.gif", "name":"oman",        "answer":"オマーン"          , "options":["アラブ首長国連邦", "カタール"] } 
+  { "area":"middleeast" , "map":"map08.gif", "name":"quatar",      "answer":"カタール"          , "options":["バーレーン", "オマーン"] } 
+  { "area":"middleeast" , "map":"map09.gif", "name":"kuwait",      "answer":"クウェート"        , "options":["カタール", "ヨルダン"] } 
+  { "area":"middleeast" , "map":"map10.gif", "name":"saudi",       "answer":"サウジアラビア"    , "options":["イラン", "イラク"] } 
+  { "area":"middleeast" , "map":"map11.gif", "name":"syria",       "answer":"シリア"            , "options":["トルコ", "ヨルダン"] } 
+  { "area":"middleeast" , "map":"map12.gif", "name":"turkey",      "answer":"トルコ"            , "options":["シリア", "サウジアラビア"] } 
+  { "area":"middleeast" , "map":"map13.gif", "name":"bahrain",     "answer":"バーレーン"        , "options":["カタール", "アラブ首長国連邦"] } 
+  { "area":"middleeast" , "map":"map14.gif", "name":"jordan",      "answer":"ヨルダン"          , "options":["レバノン", "イスラエル"] } 
+  { "area":"middleeast" , "map":"map15.gif", "name":"lebanon",     "answer":"レバノン"          , "options":["イスラエル", "パレスチナ自治政府"] } 
+  { "area":"middleeast" , "map":"map16.gif", "name":"plo",         "answer":"パレスチナ自治政府", "options":["イスラエル", "ヨルダン"] } 
+]
