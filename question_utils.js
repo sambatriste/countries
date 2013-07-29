@@ -2,7 +2,8 @@ var COUNTRIES = COUNTRIES || {};
 
 
 (function() {
-
+  'use strict';
+  
   var utils = {
     random: function(max) {
       return parseInt(Math.random() * max);

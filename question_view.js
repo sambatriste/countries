@@ -1,7 +1,8 @@
 var COUNTRIES = COUNTRIES || {};
 
 (function() {
-
+  'use strict';
+  
   COUNTRIES.QuestionView = function(question) {
     var URL_PREFIX = "http://www.mofa.go.jp/mofaj/area/",
         URL_SUFFIX = "/image/map.gif";

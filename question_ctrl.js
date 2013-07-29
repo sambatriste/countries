@@ -1,5 +1,6 @@
 
 (function() {
+  'use strict';
 
   var questions;
   var view;
@@ -61,7 +62,7 @@
 
     $('#answerOk').click(function(event) {
       goNext();
-      setTimeout(function() {
+      window.setTimeout(function() {
         $('#answerMap').attr('src', view.answerMap);
       }, 500);
     });

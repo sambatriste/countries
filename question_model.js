@@ -1,6 +1,8 @@
 var COUNTRIES = COUNTRIES || {};
 
 (function() {
+  'use strict';
+  
   var Questions = function(data) {
     this.data = data;
     this.idx = 0;
