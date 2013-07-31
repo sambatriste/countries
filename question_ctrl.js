@@ -47,17 +47,14 @@
   }
 
   $(document).delegate("#start", "pageinit", function() {
-    $.ajax("data_asia.json", {
-      type: "GET",
-      dataType: "json",
-      success: function(data, status, xhr) {
-        var shuffled = COUNTRIES.utils.shuffle(data);
-        questions = new COUNTRIES.Questions(shuffled);
-      },
-      error: function(data, status, xhr) {
-        alert("Ajax Error! :" + status);
-      }
+    $('#startAsia').click(function() {
+      loadData("data_asia.json");
     });
+    
+    $('#startMidEast').click(function() {
+      loadData("data_middleeast.json");
+    });
+    
 
     $('#answerOk').click(function(event) {
       goNext();
@@ -65,11 +62,23 @@
         $('#answerMap').attr('src', view.answerMap);
       }, 500);
     });
-    $('#start').click(function(event) {
-      goNext();
-    });
   });
-  
+
+  function loadData(name) {
+    $.ajax(name, {
+      type: "GET",
+      dataType: "json",
+      success: function(data, status, xhr) {
+        var shuffled = COUNTRIES.utils.shuffle(data);
+        questions = new COUNTRIES.Questions(shuffled);
+        goNext();
+      },
+      error: function(data, status, xhr) {
+        alert("Ajax Error! :" + status);
+      }
+    });
+  }
+
 }());
 
 
