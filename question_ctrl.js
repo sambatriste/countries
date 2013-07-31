@@ -34,7 +34,6 @@
   
   function finish() {
     var result = questions.getPercentage().toFixed();
-    $('#tmpl-finish').tmpl().appendTo('body');
     $('#result').text(result);
     $.mobile.changePage('#finish', {transition: 'flow'});
   }
