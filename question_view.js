@@ -15,11 +15,10 @@ var COUNTRIES = COUNTRIES || {};
     this.questionMap = URL_PREFIX + question.data.area + '/image/' + question.data.map;
     this.options = (function() {
       var orig = question.generateOptions(),
-          options = [],
-          i = 0;
-      for (; i < orig.length; i++) {
-        options.push({ option:orig[i] });
-      }
+          options = [];
+      jQuery.each(orig, function(i, e) {
+        options.push( { option: e });        
+      });
       return options;
     }());
   };
