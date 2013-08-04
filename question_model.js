@@ -39,7 +39,8 @@ var COUNTRIES = COUNTRIES || {};
 }());
 
 (function() {
- 
+  'use strict';
+  
   var Question = function(data, idx) {
     this.data = data;
     this.idx = idx;
@@ -67,7 +68,6 @@ var COUNTRIES = COUNTRIES || {};
   };
 
   COUNTRIES.Question = Question;
-  
   
 }());
 
