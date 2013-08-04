@@ -47,17 +47,17 @@
   }
 
   $(document).delegate("#start", "pageinit", function() {
-    $('#startAsia').click(function() {
-      loadData("data_asia.json");
+    // 地域ごとのボタン
+    var regions = [
+      { id:'#startAsia', url:"data_asia.json" },
+      { id:'#startMidEast', url:"data_middleeast.json"},
+      { id:'#startLatinAmerica', url:"data_latinamerica.json" }
+    ];
+    jQuery.each(regions, function(i, e) {
+      $(e.id).click(function() {
+        loadData(e.url);
+      });
     });
-    
-    $('#startMidEast').click(function() {
-      loadData("data_middleeast.json");
-    });
-    $('#startLatinAmerica').click(function() {
-      loadData("data_latinamerica.json");
-    });
-    
 
     $('#answerOk').click(function(event) {
       goNext();
