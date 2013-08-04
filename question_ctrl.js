@@ -54,6 +54,9 @@
     $('#startMidEast').click(function() {
       loadData("data_middleeast.json");
     });
+    $('#startLatinAmerica').click(function() {
+      loadData("data_latinamerica.json");
+    });
     
 
     $('#answerOk').click(function(event) {
