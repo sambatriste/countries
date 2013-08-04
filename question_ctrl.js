@@ -55,7 +55,7 @@
     ];
     jQuery.each(regions, function(i, e) {
       $(e.id).click(function() {
-        loadData(e.url);
+        loadData('data/' + e.url);
       });
     });
 
@@ -68,6 +68,7 @@
   });
 
   function loadData(name) {
+    initialize();
     $.ajax(name, {
       type: "GET",
       dataType: "json",
@@ -81,6 +82,13 @@
       }
     });
   }
+
+  function initialize() {
+    $('.questionPage').remove();
+    questions = null;
+    view = null;
+  }
+  
 
 }());
 
