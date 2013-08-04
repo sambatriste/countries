@@ -64,7 +64,7 @@ var COUNTRIES = COUNTRIES || {};
     
   /** 正解の判定をする。*/
   Question.prototype.isCorrect = function(selected) {
-    return (selected == this.data.answer);
+    return (selected === this.data.answer);
   };
 
   COUNTRIES.Question = Question;
