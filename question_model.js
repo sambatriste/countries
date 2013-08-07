@@ -54,7 +54,7 @@ var COUNTRIES = COUNTRIES || {};
           opts = that.data.options;
 
       ret.push(that.data.answer); // 答え
-      jQuery.each(opts, function(i, e) {
+      opts.forEach(function(e) {
         ret.push(e);       // 間違いの選択肢
       });
       return ret;

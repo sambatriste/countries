@@ -16,7 +16,7 @@ var COUNTRIES = COUNTRIES || {};
     this.options = (function() {
       var orig = question.generateOptions(),
           options = [];
-      jQuery.each(orig, function(i, e) {
+      orig.forEach(function(e) {
         options.push( { option: e });        
       });
       return options;

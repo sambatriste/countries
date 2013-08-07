@@ -53,7 +53,7 @@
       { id:'#startMidEast', url:"data_middleeast.json"},
       { id:'#startLatinAmerica', url:"data_latinamerica.json" }
     ];
-    jQuery.each(regions, function(i, e) {
+    regions.forEach(function(e) {
       $(e.id).click(function() {
         loadData('data/' + e.url);
       });
