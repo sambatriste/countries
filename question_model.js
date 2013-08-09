@@ -3,7 +3,7 @@ var COUNTRIES = COUNTRIES || {};
 (function() {
   'use strict';
   
-  var Questions = function(data) {
+  var Questions = COUNTRIES.Questions = function(data) {
     this.data = data;
     this.idx = 0;
     this.correctCnt = 0;
@@ -35,13 +35,12 @@ var COUNTRIES = COUNTRIES || {};
     }
     return correct;
   };
-  COUNTRIES.Questions = Questions;
 }());
 
 (function() {
   'use strict';
   
-  var Question = function(data, idx) {
+  var Question = COUNTRIES.Question = function(data, idx) {
     this.data = data;
     this.idx = idx;
   };
@@ -66,8 +65,6 @@ var COUNTRIES = COUNTRIES || {};
   Question.prototype.isCorrect = function(selected) {
     return (selected === this.data.answer);
   };
-
-  COUNTRIES.Question = Question;
   
 }());
 
