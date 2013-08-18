@@ -51,7 +51,8 @@
     var regions = [
       { id:'#startAsia', url:"data_asia.json" },
       { id:'#startMidEast', url:"data_middleeast.json"},
-      { id:'#startLatinAmerica', url:"data_latinamerica.json" }
+      { id:'#startLatinAmerica', url:"data_latinamerica.json" },
+      { id:'#startEurope', url:"data_europe.json" }
     ];
     regions.forEach(function(e) {
       $(e.id).click(function() {
