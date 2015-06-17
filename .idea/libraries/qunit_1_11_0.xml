@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="qunit-1.11.0" type="javaScript">
-    <CLASSES />
-    <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/qunit-1.11.0.js" />
-    </SOURCES>
-  </library>
-</component>
