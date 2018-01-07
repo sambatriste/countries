@@ -1,5 +1,5 @@
 var data = [
-  { "area":"asia", "map":"map01.gif", "name":"india",         "answer":"インド"          ,"options":["パキスタン","スリランカ"] }
+  { "area":"asia", "map":"map01.gif", "name":"india",         "answer":"インド"          ,"options":["パキスタン","スリランカ"] }
 ];
 
 test("random", function() {
@@ -31,7 +31,7 @@ test("View", function() {
   equal(target.idx, 0);
   equal(target.page, "page0");
   equal(target.btn, "btn0");
-  equal(target.answerCountry, "インド");
+  equal(target.answerCountry, "インド");
   equal(target.answerMap, "http://www.mofa.go.jp/mofaj/area/india/image/map.gif");
   equal(target.questionMap, "http://www.mofa.go.jp/mofaj/area/asia/image/map01.gif");
   
@@ -41,19 +41,19 @@ test("選択肢", function() {
       actual = target.generateOptions(),
       sorted = actual.sort();
   equal(actual.length, 3, "要素数は３");
-  deepEqual(sorted, ["インド", "パキスタン", "スリランカ"].sort(),
-            "元の選択肢の要素がすべて含まれていること");
+  deepEqual(sorted, ["インド", "パキスタン", "スリランカ"].sort(),
+            "元の選択肢の要素がすべて含まれていること");
 });
-test("答えの判定ができること", function() {
+test("答えの判定ができること", function() {
 
   var target = new COUNTRIES.Questions(data);
   var q = target.nextQuestion();
   
-  ok(target.isCorrect("インド"));
-  ok(!target.isCorrect("パキスタン"));
+  ok(target.isCorrect("インド"));
+  ok(!target.isCorrect("パキスタン"));
 
-  ok(q.isCorrect("インド"));
-  ok(!q.isCorrect("パキスタン"));
+  ok(q.isCorrect("インド"));
+  ok(!q.isCorrect("パキスタン"));
 
 });
 

@@ -5,7 +5,7 @@
   var questions;
   var view;
   
-  /** 次のページへ遷移する。*/
+  /** 次のページへ遷移する。*/
   function goNext() {
 
     var current = questions.nextQuestion(),
@@ -17,18 +17,18 @@
     }
     
     view = new COUNTRIES.QuestionView(current);
-    // bodyに新しいページを追加する。
+    // bodyに新しいページを追加する。
     $('#tmpl-page').tmpl(view).appendTo('body');
-    // ボタンを生成
+    // ボタンを生成
     $buttons = $('#' + view.page + ' input');
     $buttons.click(function(event) {
       var $touched = $(event.target),
       selected = $touched.attr('value');
-      $touched.button({theme: 'e'}); // タッチしたボタンの色を変える
-      $buttons.button('disable');    // ボタンを非活性にする
+      $touched.button({theme: 'e'}); // タッチしたボタンの色を変える
+      $buttons.button('disable');    // ボタンを非活性にする
       verify(selected); // 答え合わせ
     });
-    // ページ遷移
+    // ページ遷移
     $.mobile.changePage('#' + view.page, {transition: 'flow'});
   }
   
@@ -42,12 +42,12 @@
     $('#answerMap').attr('src', view.answerMap);
     $('#answerCountry').text(view.answerCountry);
     $('#answerDisp').text((questions.isCorrect(selected)) ? '正解' : '不正解');
-    // ポップアップダイアログを表示
+    // ポップアップダイアログを表示
     $.mobile.changePage('#answerDialog', {transition: 'pop', role: 'dialog'});
   }
 
   $(document).delegate("#start", "pageinit", function() {
-    // 地域ごとのボタン
+    // 地域ごとのボタン
     var regions = [
       { id:'#startAsia', url:"data_asia.json" },
       { id:'#startMidEast', url:"data_middleeast.json"},
